@@ -3,14 +3,14 @@ package com.example.project
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.project.databinding.ActivityRegisterBinding
+import com.example.project.databinding.RegisterActivityBinding
 
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityRegisterBinding
+    private lateinit var binding: RegisterActivityBinding
     private var position: Int = 232
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = RegisterActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (intent.extras != null) {
             binding.flag.text = intent.getStringExtra("flag")

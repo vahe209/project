@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">project</string>
+    <string name="toolbar_title_in_login_page">LOG IN TO WATCH</string>
+    <string name="unlock_with_face_id">Unlock with Face ID</string>
+    <string name="unlock_with_touch_id">Unlock with Touch ID</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="log_in">Log in</string>
+    <string name="do_have_an_account">Do have an account?</string>
+    <string name="register">Register</string>
+    <string name="toolbar_title_in_register_page">Join the community</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="country_picker_hint">Search country</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search country</string>
+    <string name="helper_text">* Min. 8 Letters, 1 Uppercase, 1 Number, 1 Special Character</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="i_accept_the">I Accept the </string>
+    <string name="terms_conditions">Terms Conditions</string>
+    <string name="join">Join</string>
+
+
+</resources>

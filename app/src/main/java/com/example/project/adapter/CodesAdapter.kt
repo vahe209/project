@@ -23,21 +23,17 @@ class CodesAdapter(
         closeOnClick = closeFragment
         return CodesViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return codes.size
     }
-
     @SuppressLint("NotifyDataSetChanged")
     fun filterList(list: ArrayList<PhoneCodesItem>) {
         codes = list
         notifyDataSetChanged()
-
         for (item in codes) {
             item.isSelected = false
         }
     }
-
     @SuppressLint("NotifyDataSetChanged", "CommitPrefEdits")
     override fun onBindViewHolder(holder: CodesViewHolder, position: Int) {
         val item = codes[position]
@@ -55,7 +51,6 @@ class CodesAdapter(
             notifyDataSetChanged()
             closeFragment.closeFragment(item.flag, item.dialCode, selectedPosition)
         }
-
     }
     class CodesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val flag: TextView = itemView.findViewById(R.id.flag)
@@ -64,7 +59,6 @@ class CodesAdapter(
         val ifSelected: TextView = itemView.findViewById(R.id.if_selected)
         val background: ConstraintLayout = itemView.findViewById(R.id.row_constraint)
     }
-
     interface CloseFragment {
         fun closeFragment(flag: String, numberCode: String, position: Int?)
     }

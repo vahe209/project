@@ -17,7 +17,11 @@ class WrongDataFragment : Fragment() {
         fragmentInteractionListener?.onCloseButtonPressed()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentWrongDataBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -38,9 +42,11 @@ class WrongDataFragment : Fragment() {
     private fun startAutoCloseTimer() {
         handler.postDelayed(autoCloseRunnable, autoCloseDelayMillis.toLong())
     }
+
     fun setFragmentInteractionListener(listener: FragmentInteractionListener) {
         fragmentInteractionListener = listener
     }
+
     interface FragmentInteractionListener {
         fun onCloseButtonPressed()
     }

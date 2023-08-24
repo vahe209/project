@@ -6,6 +6,7 @@
     android:layout_height="fill_parent"
     android:background="@color/bg_color"
     tools:context=".LoginActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -34,456 +35,454 @@
             android:textSize="16sp"
             tools:ignore="UnusedAttribute" />
     </androidx.appcompat.widget.Toolbar>
-    <ScrollView
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingBottom="70dp">
-
-
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fName_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/first_name"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-           />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fName_input_layout"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="@id/fName_edit_title"
-            app:layout_constraintStart_toStartOf="@id/fName_edit_title"
-            app:layout_constraintTop_toBottomOf="@id/fName_edit_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fName_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textCapSentences"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/first_name_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="4dp"
-                android:text=""
-                android:textColor="@color/bg_btn"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lName_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/last_name"
-
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/fName_input_layout"
-            app:layout_constraintStart_toStartOf="@id/fName_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/fName_input_layout" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lName_input_layout"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="@id/lName_edit_title"
-            app:layout_constraintStart_toStartOf="@id/lName_edit_title"
-            app:layout_constraintTop_toBottomOf="@id/lName_edit_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lName_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textCapSentences"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/last_name_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="4dp"
-                android:text=""
-                android:textColor="@color/bg_btn"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/email_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/email"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/lName_input_layout"
-            app:layout_constraintStart_toStartOf="@id/lName_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/lName_input_layout" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_input_layout"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="@id/email_edit_title"
-            app:layout_constraintStart_toStartOf="@id/email_edit_title"
-            app:layout_constraintTop_toBottomOf="@id/email_edit_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/email_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="4dp"
-                android:text=""
-                android:textColor="@color/bg_btn"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/phone_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/phone_number"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/email_input_layout"
-            app:layout_constraintStart_toStartOf="@id/email_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/email_input_layout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/number_edit_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phone_edit_title">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="70dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/choose_country_code"
-                android:layout_width="wrap_content"
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fName_edit_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/first_name"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/flag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="20dp"
-                    android:gravity="center"
-                    android:text="🇺🇸"
-                    android:textSize="30sp"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/dropdown_arrow"
-                    android:layout_width="10dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="2dp"
-                    android:src="@drawable/dropdown_arrow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/flag"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/number_code_fixed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="14dp"
-                    android:fontFamily="@font/sf_pro_display_medium"
-                    android:gravity="center"
-                    android:text="+1"
-                    android:textColor="@color/light_grey"
-                    android:textFontWeight="700"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/dropdown_arrow"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phone_input_layout"
+                android:id="@+id/fName_input_layout"
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:errorEnabled="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/choose_country_code"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="@id/fName_edit_title"
+                app:layout_constraintStart_toStartOf="@id/fName_edit_title"
+                app:layout_constraintTop_toBottomOf="@id/fName_edit_title">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phone_edit"
+                    android:id="@+id/fName_edit"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/edit_text_bg"
                     android:fontFamily="@font/sf_pro_display_medium"
-                    android:inputType="phone"
+                    android:inputType="textCapSentences"
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/first_name_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:text=""
+                    android:textColor="@color/bg_btn"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/number_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text=""
-            android:textColor="@color/bg_btn"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@id/number_edit_layout"
-            app:layout_constraintTop_toBottomOf="@id/number_edit_layout" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/password_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/password"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/password_input_layout"
-            app:layout_constraintStart_toStartOf="@id/password_input_layout"
-            app:layout_constraintTop_toBottomOf="@+id/number_info" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password_input_layout"
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:errorEnabled="true"
-            app:helperText="@string/helper_text"
-            app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/password_edit_title"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/light_grey">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/password_info"
-                android:layout_width="wrap_content"
+                android:id="@+id/lName_edit_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:textSize="12sp"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:textColor="@color/bg_btn" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="@string/last_name"
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/confirm_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/confirm_password"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/password_input_layout"
-            app:layout_constraintStart_toStartOf="@id/password_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirm_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:boxBackgroundMode="outline"
-            app:helperTextTextColor="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/confirm_edit_title"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/light_grey">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirm_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textEmailAddress"
                 android:textColor="@color/white"
                 android:textFontWeight="700"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/fName_input_layout"
+                app:layout_constraintStart_toStartOf="@id/fName_input_layout"
+                app:layout_constraintTop_toBottomOf="@id/fName_input_layout" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/confirm_info"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lName_input_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
                 android:layout_marginTop="4dp"
-                android:textSize="12sp"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:textColor="@color/bg_btn" />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintEnd_toEndOf="@id/lName_edit_title"
+                app:layout_constraintStart_toStartOf="@id/lName_edit_title"
+                app:layout_constraintTop_toBottomOf="@id/lName_edit_title">
 
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/agreement_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/light_grey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/confirm_input_layout" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lName_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:inputType="textCapSentences"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/agreement_text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/i_accept_the"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            app:layout_constraintBottom_toBottomOf="@id/agreement_checkbox"
-            app:layout_constraintStart_toEndOf="@id/agreement_checkbox"
-            app:layout_constraintTop_toTopOf="@id/agreement_checkbox" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/terms_conditions"
-            android:textColor="@color/blue"
-            android:textFontWeight="400"
-            app:layout_constraintBottom_toBottomOf="@id/agreement_text_1"
-            app:layout_constraintStart_toEndOf="@id/agreement_text_1"
-            app:layout_constraintTop_toTopOf="@id/agreement_text_1" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/agreement_checkbox_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/accept_the_terms_amp_conditions_for_registration"
-            android:textColor="@color/bg_btn"
-            android:textSize="8sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@id/agreement_checkbox"
-            app:layout_constraintTop_toBottomOf="@id/agreement_text_1" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_join"
-            android:layout_width="214dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/bg_btn"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/join"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/agreement_checkbox" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/login_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="@id/btn_join"
-            app:layout_constraintStart_toStartOf="@id/btn_join"
-            app:layout_constraintTop_toBottomOf="@id/btn_join">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/last_name_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:text=""
+                    android:textColor="@color/bg_btn"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/have_account_text"
-                android:layout_width="wrap_content"
+                android:id="@+id/email_edit_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:text="@string/do_have_an_account"
-                android:textColor="@color/light_grey"
-                android:textFontWeight="400"
-                app:layout_constraintStart_toStartOf="@id/btn_login"
-                app:layout_constraintTop_toBottomOf="@id/btn_login" />
+                android:text="@string/email"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/lName_input_layout"
+                app:layout_constraintStart_toStartOf="@id/lName_input_layout"
+                app:layout_constraintTop_toBottomOf="@id/lName_input_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_title"
+                app:layout_constraintStart_toStartOf="@id/email_edit_title"
+                app:layout_constraintTop_toBottomOf="@id/email_edit_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:text=""
+                    android:textColor="@color/bg_btn"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_for_login"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginLeft="4dp"
+                android:id="@+id/phone_edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:gravity="center"
-                android:text="@string/log_in"
+                android:text="@string/phone_number"
                 android:textColor="@color/white"
-                android:textFontWeight="400" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/email_input_layout"
+                app:layout_constraintStart_toStartOf="@id/email_input_layout"
+                app:layout_constraintTop_toBottomOf="@id/email_input_layout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/number_edit_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edit_text_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_edit_title">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/choose_country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/flag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center"
+                        android:text="🇺🇸"
+                        android:textSize="30sp"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/dropdown_arrow"
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/dropdown_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/flag"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/number_code_fixed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="14dp"
+                        android:fontFamily="@font/sf_pro_display_medium"
+                        android:gravity="center"
+                        android:text="+1"
+                        android:textColor="@color/light_grey"
+                        android:textFontWeight="700"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/dropdown_arrow"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/choose_country_code"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_edit"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/edit_text_bg"
+                        android:fontFamily="@font/sf_pro_display_medium"
+                        android:inputType="phone"
+                        android:textColor="@color/white"
+                        android:textFontWeight="700"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/number_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text=""
+                android:textColor="@color/bg_btn"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/number_edit_layout"
+                app:layout_constraintTop_toBottomOf="@id/number_edit_layout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/password_edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/password"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/password_input_layout"
+                app:layout_constraintStart_toStartOf="@id/password_input_layout"
+                app:layout_constraintTop_toBottomOf="@+id/number_info" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:errorEnabled="true"
+                app:helperText="@string/helper_text"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/light_grey"
+                app:layout_constraintTop_toBottomOf="@id/password_edit_title"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/light_grey">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/password_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:textColor="@color/bg_btn"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/confirm_edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/confirm_password"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/password_input_layout"
+                app:layout_constraintStart_toStartOf="@id/password_input_layout"
+                app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirm_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:boxBackgroundMode="outline"
+                app:helperTextTextColor="@color/light_grey"
+                app:layout_constraintTop_toBottomOf="@id/confirm_edit_title"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/light_grey">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirm_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/confirm_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:textColor="@color/bg_btn"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/agreement_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/light_grey"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/confirm_input_layout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/agreement_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/i_accept_the"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                app:layout_constraintBottom_toBottomOf="@id/agreement_checkbox"
+                app:layout_constraintStart_toEndOf="@id/agreement_checkbox"
+                app:layout_constraintTop_toTopOf="@id/agreement_checkbox" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/terms_conditions"
+                android:textColor="@color/blue"
+                android:textFontWeight="400"
+                app:layout_constraintBottom_toBottomOf="@id/agreement_text_1"
+                app:layout_constraintStart_toEndOf="@id/agreement_text_1"
+                app:layout_constraintTop_toTopOf="@id/agreement_text_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/agreement_checkbox_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/accept_the_terms_amp_conditions_for_registration"
+                android:textColor="@color/bg_btn"
+                android:textSize="8sp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="@id/agreement_checkbox"
+                app:layout_constraintTop_toBottomOf="@id/agreement_text_1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_join"
+                android:layout_width="214dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/bg_btn"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/join"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/agreement_checkbox" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/login_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@id/btn_join"
+                app:layout_constraintStart_toStartOf="@id/btn_join"
+                app:layout_constraintTop_toBottomOf="@id/btn_join">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:text="@string/do_have_an_account"
+                    android:textColor="@color/light_grey"
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/btn_login"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_for_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:gravity="center"
+                    android:text="@string/log_in"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

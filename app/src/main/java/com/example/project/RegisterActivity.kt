@@ -19,8 +19,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
     private var position: Int = 232
     private var validPassword: Boolean = false
     private var isChecked:Boolean = false
-
-
     @SuppressLint("UseCompatLoadingForColorStateLists", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,11 +61,9 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
                     binding.confirmInfo.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@RegisterActivity, R.color.bg_btn)))
                     binding.confirmInfo.text = "Values do not match"
                 }
-
             }
         }
-        binding.agreementCheckbox.setOnCheckedChangeListener{
-                _, isChecked ->
+        binding.agreementCheckbox.setOnCheckedChangeListener{ _, isChecked ->
             this.isChecked = isChecked
         }
 
@@ -104,7 +100,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
-
     private fun checkConfirmPass(confPass: String): Boolean {
         return if(confPass.isNotEmpty()){
             binding.numberInfo.text = ""
@@ -114,7 +109,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
-
     private fun checkPass(password: String): Boolean {
         validPassword = isValidPass(password)
         return if(password.isNotEmpty()){
@@ -129,7 +123,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
-
     private fun checkPhone(phone: String): Boolean {
         return if(phone.isNotEmpty()){
             binding.numberInfo.text = ""
@@ -139,7 +132,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
-
     private fun checkLastName(lastName: String): Boolean {
         return if (lastName.isNotEmpty()) {
             binding.lastNameInfo.text = ""
@@ -149,7 +141,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
-
     private fun checkFirstName(firstName: String): Boolean {
         return if (firstName.isNotEmpty()) {
             binding.firstNameInfo.text = ""
@@ -158,9 +149,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             binding.firstNameInfo.text = "First Name is required"
             false
         }
-
     }
-
     @Suppress("UNREACHABLE_CODE")
     private fun isValidPass(password: String): Boolean {
         val regex =
@@ -169,7 +158,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
         val m: Matcher = p.matcher(password)
         return m.matches()
     }
-
     private fun checkEmail(email: String): Boolean {
         if (email.isNotEmpty()) {
             val regex = "^[A-Za-z\\d+_.-]+@(.+)$"
@@ -188,12 +176,10 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             return false
         }
     }
-
     private fun createLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
-
     private fun showDropdown() {
         val bottomSheetDialogFragment = FragmentEnterNumberCode()
         val bundle = Bundle()
@@ -201,9 +187,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
         bottomSheetDialogFragment.arguments = bundle
         bottomSheetDialogFragment.show(supportFragmentManager, bottomSheetDialogFragment.tag)
     }
-
-
-
     private fun openErrorFragment() {
         binding.backArrow.isVisible = false
         binding.registerLayoutToolbar.isVisible = false
@@ -213,7 +196,6 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             .replace(R.id.toolbar, wrongDataFragment)
             .commit()
     }
-
     override fun onCloseButtonPressed() {
         binding.backArrow.isVisible = true
         binding.registerLayoutToolbar.isVisible = true

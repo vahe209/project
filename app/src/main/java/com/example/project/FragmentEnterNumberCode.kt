@@ -27,14 +27,11 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
     private lateinit var items: ArrayList<PhoneCodesItem>
     private lateinit var adapter: CodesAdapter
     private var position: Int = 232
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentEnterNumberCodeBinding.inflate(layoutInflater, container, false)
         val args = arguments
         args?.getInt("position")?.also { position = it }
         setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
-
         dialog?.setOnShowListener { dialog ->
             val layout: FrameLayout? =
                 (dialog as BottomSheetDialog).findViewById(com.google.android.material.R.id.design_bottom_sheet)
@@ -47,7 +44,6 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
         loadJson()
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.searchView.addTextChangedListener(textWatcher)
@@ -55,19 +51,15 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
             dismiss()
         }
     }
-
     private val textWatcher = object : TextWatcher {
         override fun afterTextChanged(editable: Editable?) {
             filterCodes(editable.toString())
         }
-
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
         }
-
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         }
     }
-
     private fun loadJson() {
         val json: String
         try {
@@ -84,14 +76,11 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
             e.printStackTrace()
         }
     }
-
     private fun filterCodes(string: String) {
         var filteredCodes = ArrayList<PhoneCodesItem>()
 
         for (item in items) {
-            if (item.name.lowercase(Locale.getDefault())
-                    .contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(string)
-            ) {
+            if (item.name.lowercase(Locale.getDefault()).contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(string)) {
                 filteredCodes.add(item)
                 binding.nothingFoundText.isVisible = false
             }
@@ -102,7 +91,6 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
         }
 
     }
-
     override fun closeFragment(flag: String, numberCode: String, position: Int?) {
         val intent = Intent(requireContext(), RegisterActivity::class.java)
         intent.putExtra("flag", flag)
@@ -110,5 +98,4 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
         intent.putExtra("position", position)
         startActivity(intent)
     }
-
 }

@@ -49,7 +49,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
                 validPassword = false
             }
         }
-        binding.confirmEdit.doOnTextChanged { text, start, before, count ->
+        binding.confirmEdit.doOnTextChanged { text, _, _, _ ->
             if (text.toString() == binding.passwordEdit.text.toString() && binding.passwordEdit.text.toString().isNotEmpty()) {
                 binding.confirmInputLayout.apply {
                     error = null

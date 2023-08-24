@@ -137,7 +137,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             binding.lastNameInfo.text = ""
             true
         } else {
-            binding.lastNameInfo.text = "Last Name is required"
+            binding.lastNameInfo.text = "Last name is required"
             false
         }
     }
@@ -146,7 +146,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             binding.firstNameInfo.text = ""
             true
         } else {
-            binding.firstNameInfo.text = "First Name is required"
+            binding.firstNameInfo.text = "First name is required"
             false
         }
     }

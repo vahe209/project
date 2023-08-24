@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,232 +7,240 @@
     android:background="@color/bg_color"
     tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="30dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:id="@+id/toolbar"
-            android:layout_height="?actionBarSize"
-            android:background="@color/bg_color"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            tools:ignore="MissingConstraints">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/baseline_arrow_back" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/auto_login_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:gravity="center"
-                android:text="@string/toolbar_title_in_login_page"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="16sp"/>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/unlock_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:gravity="center"
-                android:text="@string/unlock_with_face_id"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:targetApi="p" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/face_id"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/face_id"
-                app:layout_constraintEnd_toEndOf="@id/unlock_title"
-                app:layout_constraintStart_toStartOf="@id/unlock_title"
-                app:layout_constraintTop_toBottomOf="@id/unlock_title" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:thumb="@drawable/thumb"
-                app:layout_constraintEnd_toEndOf="@id/face_id"
-                app:layout_constraintStart_toStartOf="@id/face_id"
-                app:layout_constraintTop_toBottomOf="@id/face_id"
-                app:track="@drawable/track" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="?actionBarSize"
+        android:background="@color/bg_color"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/or_line"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/baseline_arrow_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/auto_login_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:gravity="center"
+            android:text="@string/toolbar_title_in_login_page"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:src="@drawable/or_line"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            android:paddingBottom="30dp">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/email_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/email"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/or_line"
-            app:layout_constraintStart_toStartOf="@id/or_line"
-            app:layout_constraintTop_toBottomOf="@id/or_line" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_input_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            style="@style/TextInputLayoutStyle"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="@id/email_edit_title"
-            app:layout_constraintStart_toStartOf="@id/email_edit_title"
-
-            app:layout_constraintTop_toBottomOf="@id/email_edit_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/password_edit_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/password"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/email_input_layout"
-            app:layout_constraintStart_toStartOf="@+id/email_input_layout"
-            app:layout_constraintTop_toBottomOf="@+id/email_input_layout" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/unlock_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:gravity="center"
+                    android:text="@string/unlock_with_face_id"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:targetApi="p" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password_input_layout"
-            android:layout_width="0dp"
-            style="@style/TextInputLayoutStyle"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:errorEnabled="true"
-            app:passwordToggleTint="@color/light_grey"
-            app:layout_constraintEnd_toEndOf="@id/password_edit_title"
-            app:layout_constraintStart_toStartOf="@id/password_edit_title"
-            app:layout_constraintTop_toBottomOf="@id/password_edit_title"
-            app:passwordToggleEnabled="true">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/face_id"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/face_id"
+                    app:layout_constraintEnd_toEndOf="@id/unlock_title"
+                    app:layout_constraintStart_toStartOf="@id/unlock_title"
+                    app:layout_constraintTop_toBottomOf="@id/unlock_title" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password_edit"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/edit_text_bg"
-                android:fontFamily="@font/sf_pro_display_medium"
-                android:gravity="center_vertical"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textFontWeight="700"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:thumb="@drawable/thumb"
+                    app:layout_constraintEnd_toEndOf="@id/face_id"
+                    app:layout_constraintStart_toStartOf="@id/face_id"
+                    app:layout_constraintTop_toBottomOf="@id/face_id"
+                    app:track="@drawable/track" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/forgot_pass_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:textFontWeight="400"
-            android:textColor="@color/blue"
-            app:layout_constraintStart_toStartOf="@id/password_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login"
-            android:layout_width="230dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/bg_btn"
-            android:fontFamily="@font/sf_pro_display_medium"
-            android:text="@string/log_in"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/forgot_pass_text" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/register_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="@id/btn_login"
-            app:layout_constraintStart_toStartOf="@id/btn_login"
-            app:layout_constraintTop_toBottomOf="@id/btn_login">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/or_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/or_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/have_account_text"
+                android:id="@+id/email_edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/email"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/or_line"
+                app:layout_constraintStart_toStartOf="@id/or_line"
+                app:layout_constraintTop_toBottomOf="@id/or_line" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_title"
+                app:layout_constraintStart_toStartOf="@id/email_edit_title"
+
+                app:layout_constraintTop_toBottomOf="@id/email_edit_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/password_edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/password"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/email_input_layout"
+                app:layout_constraintStart_toStartOf="@+id/email_input_layout"
+                app:layout_constraintTop_toBottomOf="@+id/email_input_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_input_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@id/password_edit_title"
+                app:layout_constraintStart_toStartOf="@id/password_edit_title"
+                app:layout_constraintTop_toBottomOf="@id/password_edit_title"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/light_grey">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/forgot_pass_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:text="@string/do_have_an_account"
-                android:textColor="@color/light_grey"
+                android:text="@string/forgot_password"
+                android:textColor="@color/blue"
                 android:textFontWeight="400"
-                app:layout_constraintStart_toStartOf="@id/btn_login"
-                app:layout_constraintTop_toBottomOf="@id/btn_login" />
+                app:layout_constraintStart_toStartOf="@id/password_input_layout"
+                app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_for_registration"
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:layout_width="230dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/bg_btn"
                 android:fontFamily="@font/sf_pro_display_medium"
-                android:gravity="center"
-                android:text="@string/register"
+                android:text="@string/log_in"
                 android:textColor="@color/white"
-                android:textFontWeight="400" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                android:textFontWeight="700"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/forgot_pass_text" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/register_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@id/btn_login"
+                app:layout_constraintStart_toStartOf="@id/btn_login"
+                app:layout_constraintTop_toBottomOf="@id/btn_login">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/have_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:text="@string/do_have_an_account"
+                    android:textColor="@color/light_grey"
+                    android:textFontWeight="400"
+                    app:layout_constraintStart_toStartOf="@id/btn_login"
+                    app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_for_registration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:gravity="center"
+                    android:text="@string/register"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

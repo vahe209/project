@@ -20,8 +20,9 @@
     <string name="helper_text">* Min. 8 Letters, 1 Uppercase, 1 Number, 1 Special Character</string>
     <string name="confirm_password">Confirm password</string>
     <string name="i_accept_the">I Accept the </string>
-    <string name="terms_conditions">Terms Conditions</string>
+    <string name="terms_conditions">Terms &amp; Conditions</string>
     <string name="join">Join</string>
+    <string name="accept_the_terms_amp_conditions_for_registration"><![CDATA[Accept the Terms & Conditions for registration]]></string>
 
 
 </resources>

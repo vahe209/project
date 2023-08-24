@@ -50,7 +50,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             }
         }
         binding.confirmEdit.doOnTextChanged { text, start, before, count ->
-            if (text.toString() == binding.passwordEdit.text.toString()) {
+            if (text.toString() == binding.passwordEdit.text.toString() && binding.passwordEdit.text.toString().isNotEmpty()) {
                 binding.confirmInputLayout.apply {
                     error = null
                     binding.confirmInfo.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@RegisterActivity, R.color.green)))
@@ -85,7 +85,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
                     isPasswordValid &&
                     isConfirmPassValid &&
                     isCheckBoxChecked &&
-                binding.passwordEdit.text.toString() == binding.confirmEdit.text.toString() ){
+                binding.passwordEdit.text.toString() == binding.confirmEdit.text.toString()  ){
             // TODO:  registerCall
                 Toast.makeText(this,"Everything is working", Toast.LENGTH_SHORT).show()
             }

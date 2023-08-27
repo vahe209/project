@@ -1,6 +1,5 @@
 package com.example.project
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -22,15 +21,13 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.*
 
-class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseFragment {
+class FragmentEnterNumberCode(private var selectedItem: PhoneCodesItem?,private val closeFragmentEnterNumberCode: RegisterActivity): BottomSheetDialogFragment(){
     private lateinit var binding: FragmentEnterNumberCodeBinding
     private lateinit var items: ArrayList<PhoneCodesItem>
     private lateinit var adapter: CodesAdapter
-    private var position: Int = 232
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentEnterNumberCodeBinding.inflate(layoutInflater, container, false)
-        val args = arguments
-        args?.getInt("position")?.also { position = it }
         setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme)
         dialog?.setOnShowListener { dialog ->
             val layout: FrameLayout? =
@@ -40,8 +37,8 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
                 behavior.skipCollapsed = true
             }
+
         }
-        loadJson()
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +47,7 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
         binding.closeFragmentBtn.setOnClickListener {
             dismiss()
         }
+        loadJson()
     }
     private val textWatcher = object : TextWatcher {
         override fun afterTextChanged(editable: Editable?) {
@@ -68,19 +66,22 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
                 it.readText()
             }
             items = Gson().fromJson(json, Array<PhoneCodesItem>::class.java).toList() as ArrayList<PhoneCodesItem>
-            adapter = CodesAdapter(items, this, position)
+            adapter = CodesAdapter(items, closeFragmentEnterNumberCode, requireContext(), selectedItem)
             binding.rv.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             binding.rv.adapter = adapter
-
         } catch (e: IOException) {
             e.printStackTrace()
         }
     }
     private fun filterCodes(string: String) {
-        var filteredCodes = ArrayList<PhoneCodesItem>()
+        val filteredCodes = ArrayList<PhoneCodesItem>()
 
         for (item in items) {
-            if (item.name.lowercase(Locale.getDefault()).contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(string)) {
+            if (item.name.lowercase(Locale.getDefault())
+                    .contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(
+                    string
+                )
+            ) {
                 filteredCodes.add(item)
                 binding.nothingFoundText.isVisible = false
             }
@@ -90,12 +91,5 @@ class FragmentEnterNumberCode : BottomSheetDialogFragment(), CodesAdapter.CloseF
             adapter.filterList(filteredCodes)
         }
 
-    }
-    override fun closeFragment(flag: String, numberCode: String, position: Int?) {
-        val intent = Intent(requireContext(), RegisterActivity::class.java)
-        intent.putExtra("flag", flag)
-        intent.putExtra("numberCode", numberCode)
-        intent.putExtra("position", position)
-        startActivity(intent)
     }
 }

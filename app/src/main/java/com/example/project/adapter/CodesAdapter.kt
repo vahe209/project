@@ -1,6 +1,7 @@
 package com.example.project.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,49 +10,59 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.R
+import com.example.project.RegisterActivity
 import com.example.project.data.PhoneCodesItem
 
 class CodesAdapter(
     private var codes: ArrayList<PhoneCodesItem>,
-    private val closeFragment: CloseFragment,
-    private var selectedPosition: Int
+    private val closeFragment: RegisterActivity,
+    private val context: Context,
+    private val selectedItem: PhoneCodesItem?
 ) : RecyclerView.Adapter<CodesAdapter.CodesViewHolder>() {
     private var closeOnClick: CloseFragment? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CodesViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.country_code_item_row, parent, false)
+        val view =
+            LayoutInflater.from(context).inflate(R.layout.country_code_item_row, parent, false)
         closeOnClick = closeFragment
+
         return CodesViewHolder(view)
     }
+
     override fun getItemCount(): Int {
         return codes.size
     }
+
     @SuppressLint("NotifyDataSetChanged")
     fun filterList(list: ArrayList<PhoneCodesItem>) {
         codes = list
         notifyDataSetChanged()
-        for (item in codes) {
-            item.isSelected = false
-        }
     }
+
     @SuppressLint("NotifyDataSetChanged", "CommitPrefEdits")
-    override fun onBindViewHolder(holder: CodesViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: CodesViewHolder,
+        @SuppressLint("RecyclerView") position: Int
+    ) {
         val item = codes[position]
+        println(selectedItem)
+        if (item == selectedItem) {
+            item.isSelected = true
+        }
+        holder.background.isVisible = item.isSelected
+        holder.ifSelected.isVisible = item.isSelected
         holder.flag.text = item.flag
         holder.countryName.text = item.name
         holder.numberCode.text = item.dialCode
-        holder.ifSelected.isVisible = item.isSelected
-        holder.background.isVisible = item.isSelected
-        if (position == selectedPosition) {
-            holder.background.isVisible = true
-            holder.ifSelected.isVisible = true
-        }
         holder.itemView.setOnClickListener {
-            selectedPosition = position
+            for (code in codes) {
+                item.isSelected = false
+            }
+            closeFragment.closeFragment(item.flag, item.dialCode, item)
             notifyDataSetChanged()
-            closeFragment.closeFragment(item.flag, item.dialCode, selectedPosition)
         }
     }
+
     class CodesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val flag: TextView = itemView.findViewById(R.id.flag)
         val numberCode: TextView = itemView.findViewById(R.id.number_code)
@@ -60,6 +71,6 @@ class CodesAdapter(
         val background: ConstraintLayout = itemView.findViewById(R.id.row_constraint)
     }
     interface CloseFragment {
-        fun closeFragment(flag: String, numberCode: String, position: Int?)
+        fun closeFragment(flag: String, numberCode: String, selectedItem: PhoneCodesItem)
     }
 }

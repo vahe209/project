@@ -9,25 +9,34 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.ViewModelProvider
+import com.example.project.adapter.CodesAdapter
+import com.example.project.data.PhoneCodesItem
 import com.example.project.databinding.RegisterActivityBinding
+import com.example.project.viewModels.ViewModelRegisterActivity
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 @Suppress("UNREACHABLE_CODE")
-class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteractionListener {
+class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteractionListener,
+    CodesAdapter.CloseFragment {
     private lateinit var binding: RegisterActivityBinding
-    private var position: Int = 232
     private var validPassword: Boolean = false
-    private var isChecked:Boolean = false
+    private var isChecked: Boolean = false
+    private lateinit var viewModel: ViewModelRegisterActivity
+    private lateinit var selectedNumberCode: PhoneCodesItem
+    private lateinit var fragment: FragmentEnterNumberCode
+
     @SuppressLint("UseCompatLoadingForColorStateLists", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = RegisterActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        println("created")
+        viewModel = ViewModelProvider(this)[ViewModelRegisterActivity::class.java]
         if (intent.extras != null) {
             binding.flag.text = intent.getStringExtra("flag")
             binding.numberCodeFixed.text = intent.getStringExtra("numberCode")
-            position = intent.getIntExtra("position", 232)
         }
         binding.backArrow.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
@@ -41,7 +50,13 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
         }
         binding.passwordEdit.doOnTextChanged { text, _, _, _ ->
             if (isValidPass(text.toString())) {
-                binding.passwordInfo.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@RegisterActivity, R.color.green)))
+                binding.passwordInfo.setTextColor(
+                    ColorStateList.valueOf(
+                        ContextCompat.getColor(
+                            this@RegisterActivity, R.color.green
+                        )
+                    )
+                )
                 binding.passwordInfo.text = "Excellent"
                 validPassword = true
             } else {
@@ -50,20 +65,34 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             }
         }
         binding.confirmEdit.doOnTextChanged { text, _, _, _ ->
-            if (text.toString() == binding.passwordEdit.text.toString() && binding.passwordEdit.text.toString().isNotEmpty()) {
+            if (text.toString() == binding.passwordEdit.text.toString() && binding.passwordEdit.text.toString()
+                    .isNotEmpty()
+            ) {
                 binding.confirmInputLayout.apply {
                     error = null
-                    binding.confirmInfo.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@RegisterActivity, R.color.green)))
+                    binding.confirmInfo.setTextColor(
+                        ColorStateList.valueOf(
+                            ContextCompat.getColor(
+                                this@RegisterActivity, R.color.green
+                            )
+                        )
+                    )
                     binding.confirmInfo.text = "Values match"
                 }
             } else {
                 binding.confirmInputLayout.apply {
-                    binding.confirmInfo.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this@RegisterActivity, R.color.bg_btn)))
+                    binding.confirmInfo.setTextColor(
+                        ColorStateList.valueOf(
+                            ContextCompat.getColor(
+                                this@RegisterActivity, R.color.bg_btn
+                            )
+                        )
+                    )
                     binding.confirmInfo.text = "Values do not match"
                 }
             }
         }
-        binding.agreementCheckbox.setOnCheckedChangeListener{ _, isChecked ->
+        binding.agreementCheckbox.setOnCheckedChangeListener { _, isChecked ->
             this.isChecked = isChecked
         }
 
@@ -72,66 +101,68 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             val isLastNameValid = checkLastName(binding.lNameEdit.text.toString())
             val isEmailValid = checkEmail(binding.emailEdit.text.toString())
             val isPhoneValid = checkPhone(binding.phoneEdit.text.toString())
-            val isPasswordValid =checkPass(binding.passwordEdit.text.toString())
+            val isPasswordValid = checkPass(binding.passwordEdit.text.toString())
             val isConfirmPassValid = checkConfirmPass(binding.confirmEdit.text.toString())
             val isCheckBoxChecked = checkBoxIsChecked()
-            if (!isFistNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid || !isPasswordValid || !isConfirmPassValid || !isCheckBoxChecked){
+            if (!isFistNameValid || !isLastNameValid || !isEmailValid || !isPhoneValid || !isPasswordValid || !isConfirmPassValid || !isCheckBoxChecked) {
                 openErrorFragment()
             }
-            if (isFistNameValid &&
-                    isLastNameValid&&
-                    isEmailValid &&
-                    isPhoneValid &&
-                    isPasswordValid &&
-                    isConfirmPassValid &&
-                    isCheckBoxChecked &&
-                binding.passwordEdit.text.toString() == binding.confirmEdit.text.toString()  ){
-            // TODO:  registerCall
-                Toast.makeText(this,"Everything is working", Toast.LENGTH_SHORT).show()
+            if (isFistNameValid && isLastNameValid && isEmailValid && isPhoneValid && isPasswordValid && isConfirmPassValid && isCheckBoxChecked && binding.passwordEdit.text.toString() == binding.confirmEdit.text.toString()) {
+                // TODO:  registerCall
+                Toast.makeText(this, "Everything is working", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
     private fun checkBoxIsChecked(): Boolean {
-        return if (isChecked){
+        return if (isChecked) {
             binding.agreementCheckboxInfo.isVisible = false
             true
-        }else{
+        } else {
             binding.agreementCheckboxInfo.isVisible = true
             false
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkConfirmPass(confPass: String): Boolean {
-        return if(confPass.isNotEmpty()){
+        return if (confPass.isNotEmpty()) {
             binding.numberInfo.text = ""
             true
-        }else{
+        } else {
             binding.confirmInfo.text = "Confirm password"
             false
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkPass(password: String): Boolean {
         validPassword = isValidPass(password)
-        return if(password.isNotEmpty()){
-            if (validPassword){
+        return if (password.isNotEmpty()) {
+            if (validPassword) {
                 true
-            }else{
+            } else {
                 binding.passwordInfo.text = "Incorrect password type"
                 false
             }
-        }else{
+        } else {
             binding.passwordInfo.text = "Password is required"
             false
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkPhone(phone: String): Boolean {
-        return if(phone.isNotEmpty()){
+        return if (phone.isNotEmpty()) {
             binding.numberInfo.text = ""
             true
-        }else{
+        } else {
             binding.numberInfo.text = "Phone is required"
             false
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkLastName(lastName: String): Boolean {
         return if (lastName.isNotEmpty()) {
             binding.lastNameInfo.text = ""
@@ -141,6 +172,8 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkFirstName(firstName: String): Boolean {
         return if (firstName.isNotEmpty()) {
             binding.firstNameInfo.text = ""
@@ -150,6 +183,7 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             false
         }
     }
+
     @Suppress("UNREACHABLE_CODE")
     private fun isValidPass(password: String): Boolean {
         val regex =
@@ -158,6 +192,8 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
         val m: Matcher = p.matcher(password)
         return m.matches()
     }
+
+    @SuppressLint("SetTextI18n")
     private fun checkEmail(email: String): Boolean {
         if (email.isNotEmpty()) {
             val regex = "^[A-Za-z\\d+_.-]+@(.+)$"
@@ -176,26 +212,25 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
             return false
         }
     }
+
     private fun createLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
     private fun showDropdown() {
-        val bottomSheetDialogFragment = FragmentEnterNumberCode()
-        val bundle = Bundle()
-        bundle.putInt("position", position)
-        bottomSheetDialogFragment.arguments = bundle
-        bottomSheetDialogFragment.show(supportFragmentManager, bottomSheetDialogFragment.tag)
+            selectedNumberCode = viewModel.selectedNumberCodeLiveData
+            fragment = FragmentEnterNumberCode(selectedNumberCode,this)
+            fragment.show(supportFragmentManager, fragment.tag)
     }
+
     private fun openErrorFragment() {
         binding.backArrow.isVisible = false
         binding.registerLayoutToolbar.isVisible = false
         val wrongDataFragment = WrongDataFragment()
         wrongDataFragment.setFragmentInteractionListener(this@RegisterActivity)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.toolbar, wrongDataFragment)
-            .commit()
+        supportFragmentManager.beginTransaction().replace(R.id.toolbar, wrongDataFragment).commit()
     }
+
     override fun onCloseButtonPressed() {
         binding.backArrow.isVisible = true
         binding.registerLayoutToolbar.isVisible = true
@@ -203,5 +238,12 @@ class RegisterActivity : AppCompatActivity(), WrongDataFragment.FragmentInteract
         if (fragment is WrongDataFragment) {
             supportFragmentManager.beginTransaction().remove(fragment).commit()
         }
+    }
+
+    override fun closeFragment(flag: String, numberCode: String, selectedItem: PhoneCodesItem) {
+       fragment.dismiss()
+        viewModel.setSelectedNumberCode(selectedItem)
+        binding.flag.text = flag
+        binding.numberCodeFixed.text = numberCode
     }
 }

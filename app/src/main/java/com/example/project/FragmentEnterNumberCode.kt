@@ -37,7 +37,6 @@ class FragmentEnterNumberCode(private var selectedItem: PhoneCodesItem?,private 
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
                 behavior.skipCollapsed = true
             }
-
         }
         return binding.root
     }
@@ -78,10 +77,7 @@ class FragmentEnterNumberCode(private var selectedItem: PhoneCodesItem?,private 
 
         for (item in items) {
             if (item.name.lowercase(Locale.getDefault())
-                    .contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(
-                    string
-                )
-            ) {
+                    .contains(string.lowercase(Locale.getDefault())) || item.dialCode.contains(string)) {
                 filteredCodes.add(item)
                 binding.nothingFoundText.isVisible = false
             }
@@ -90,6 +86,5 @@ class FragmentEnterNumberCode(private var selectedItem: PhoneCodesItem?,private 
             }
             adapter.filterList(filteredCodes)
         }
-
     }
 }

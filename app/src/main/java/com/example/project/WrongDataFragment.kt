@@ -16,7 +16,6 @@ class WrongDataFragment : Fragment() {
     private val autoCloseRunnable = Runnable {
         fragmentInteractionListener?.onCloseButtonPressed()
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,7 +24,6 @@ class WrongDataFragment : Fragment() {
         binding = FragmentWrongDataBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.close.setOnClickListener {
@@ -33,20 +31,16 @@ class WrongDataFragment : Fragment() {
         }
         startAutoCloseTimer()
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         handler.removeCallbacks(autoCloseRunnable)
     }
-
     private fun startAutoCloseTimer() {
         handler.postDelayed(autoCloseRunnable, autoCloseDelayMillis.toLong())
     }
-
     fun setFragmentInteractionListener(listener: FragmentInteractionListener) {
         fragmentInteractionListener = listener
     }
-
     interface FragmentInteractionListener {
         fun onCloseButtonPressed()
     }

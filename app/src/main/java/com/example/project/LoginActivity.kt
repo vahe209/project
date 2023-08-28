@@ -11,9 +11,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = LoginActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val sharedPreferences = getSharedPreferences("getSelectedPosition", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.clear().apply()
         binding.textForRegistration.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)

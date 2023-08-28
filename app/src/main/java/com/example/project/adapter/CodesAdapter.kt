@@ -20,7 +20,6 @@ class CodesAdapter(
     private val selectedItem: PhoneCodesItem?
 ) : RecyclerView.Adapter<CodesAdapter.CodesViewHolder>() {
     private var closeOnClick: CloseFragment? = null
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CodesViewHolder {
         val view =
             LayoutInflater.from(context).inflate(R.layout.country_code_item_row, parent, false)
@@ -28,24 +27,17 @@ class CodesAdapter(
 
         return CodesViewHolder(view)
     }
-
     override fun getItemCount(): Int {
         return codes.size
     }
-
     @SuppressLint("NotifyDataSetChanged")
     fun filterList(list: ArrayList<PhoneCodesItem>) {
         codes = list
         notifyDataSetChanged()
     }
-
     @SuppressLint("NotifyDataSetChanged", "CommitPrefEdits")
-    override fun onBindViewHolder(
-        holder: CodesViewHolder,
-        @SuppressLint("RecyclerView") position: Int
-    ) {
+    override fun onBindViewHolder(holder: CodesViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val item = codes[position]
-        println(selectedItem)
         if (item == selectedItem) {
             item.isSelected = true
         }
@@ -62,7 +54,6 @@ class CodesAdapter(
             notifyDataSetChanged()
         }
     }
-
     class CodesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val flag: TextView = itemView.findViewById(R.id.flag)
         val numberCode: TextView = itemView.findViewById(R.id.number_code)

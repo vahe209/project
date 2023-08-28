@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.project.databinding.FragmentWrongDataBinding
 
+@Suppress("DEPRECATION")
 class WrongDataFragment : Fragment() {
     private lateinit var binding: FragmentWrongDataBinding
     private var fragmentInteractionListener: FragmentInteractionListener? = null

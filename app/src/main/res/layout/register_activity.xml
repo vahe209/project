@@ -63,12 +63,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.project.customClasses.CustomTextInputLayout
                 android:id="@+id/fName_input_layout"
                 style="@style/TextInputLayoutStyle"
+                app:errorIconDrawable="@null"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@id/fName_edit_title"
                 app:layout_constraintStart_toStartOf="@id/fName_edit_title"
                 app:layout_constraintTop_toBottomOf="@id/fName_edit_title">
@@ -85,16 +87,8 @@
                     android:textFontWeight="700"
                     android:textSize="14sp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/first_name_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="4dp"
-                    android:text=""
-                    android:textColor="@color/bg_btn"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+
+            </com.example.project.customClasses.CustomTextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/lName_edit_title"
@@ -102,7 +96,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_display_medium"
                 android:text="@string/last_name"
-
                 android:textColor="@color/white"
                 android:textFontWeight="700"
                 android:textSize="14sp"
@@ -110,11 +103,13 @@
                 app:layout_constraintStart_toStartOf="@id/fName_input_layout"
                 app:layout_constraintTop_toBottomOf="@id/fName_input_layout" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.project.customClasses.CustomTextInputLayout
                 android:id="@+id/lName_input_layout"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
                 android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="@id/lName_edit_title"
                 app:layout_constraintStart_toStartOf="@id/lName_edit_title"
@@ -131,17 +126,7 @@
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/last_name_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="4dp"
-                    android:text=""
-                    android:textColor="@color/bg_btn"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+            </com.example.project.customClasses.CustomTextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/email_edit_title"
@@ -156,12 +141,14 @@
                 app:layout_constraintStart_toStartOf="@id/lName_input_layout"
                 app:layout_constraintTop_toBottomOf="@id/lName_input_layout" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.project.customClasses.CustomTextInputLayout
                 android:id="@+id/email_input_layout"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                app:errorIconDrawable="@null"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="@id/email_edit_title"
                 app:layout_constraintStart_toStartOf="@id/email_edit_title"
                 app:layout_constraintTop_toBottomOf="@id/email_edit_title">
@@ -177,17 +164,7 @@
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/email_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="4dp"
-                    android:text=""
-                    android:textColor="@color/bg_btn"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+            </com.example.project.customClasses.CustomTextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/phone_edit_title"
@@ -257,17 +234,18 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+
+                <com.example.project.customClasses.CustomTextInputLayout
                     android:id="@+id/phone_input_layout"
                     android:layout_width="0dp"
                     style="@style/TextInputLayoutStyle"
                     android:layout_height="0dp"
-                    app:errorEnabled="true"
+                    app:errorIconDrawable="@null"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:errorEnabled="true"
                     app:layout_constraintStart_toEndOf="@id/choose_country_code"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phone_edit"
@@ -279,19 +257,17 @@
                         android:textColor="@color/white"
                         android:textFontWeight="700"
                         android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.example.project.customClasses.CustomTextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/number_info"
+                android:id="@+id/phone_correct_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text=""
+                app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/bg_btn"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@id/number_edit_layout"
-                app:layout_constraintTop_toBottomOf="@id/number_edit_layout" />
+                app:layout_constraintTop_toBottomOf="@id/number_edit_layout"
+                />
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/password_edit_title"
@@ -304,14 +280,16 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/password_input_layout"
                 app:layout_constraintStart_toStartOf="@id/password_input_layout"
-                app:layout_constraintTop_toBottomOf="@+id/number_info" />
+                app:layout_constraintTop_toBottomOf="@+id/phone_correct_info"
+                android:layout_marginTop="20dp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.project.customClasses.CustomTextInputLayout
                 android:id="@+id/password_input_layout"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                app:errorIconDrawable="@null"
                 app:errorEnabled="true"
                 app:helperText="@string/helper_text"
                 app:helperTextEnabled="true"
@@ -331,16 +309,7 @@
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/password_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:fontFamily="@font/sf_pro_display_medium"
-                    android:textColor="@color/bg_btn"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+            </com.example.project.customClasses.CustomTextInputLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/confirm_edit_title"
@@ -356,12 +325,14 @@
                 app:layout_constraintStart_toStartOf="@id/password_input_layout"
                 app:layout_constraintTop_toBottomOf="@id/password_input_layout" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.example.project.customClasses.CustomTextInputLayout
                 android:id="@+id/confirm_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 app:boxBackgroundMode="outline"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@null"
                 app:helperTextTextColor="@color/light_grey"
                 app:layout_constraintTop_toBottomOf="@id/confirm_edit_title"
                 app:passwordToggleEnabled="true"
@@ -378,17 +349,7 @@
                     android:textColor="@color/white"
                     android:textFontWeight="700"
                     android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/confirm_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/sf_pro_display_medium"
-                    android:textColor="@color/bg_btn"
-                    android:textSize="12sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+            </com.example.project.customClasses.CustomTextInputLayout>
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/agreement_checkbox"

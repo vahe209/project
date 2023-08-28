@@ -21,10 +21,8 @@ class CodesAdapter(
 ) : RecyclerView.Adapter<CodesAdapter.CodesViewHolder>() {
     private var closeOnClick: CloseFragment? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CodesViewHolder {
-        val view =
-            LayoutInflater.from(context).inflate(R.layout.country_code_item_row, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.country_code_item_row, parent, false)
         closeOnClick = closeFragment
-
         return CodesViewHolder(view)
     }
     override fun getItemCount(): Int {
@@ -41,8 +39,8 @@ class CodesAdapter(
         if (item == selectedItem) {
             item.isSelected = true
         }
-        holder.background.isVisible = item.isSelected
         holder.ifSelected.isVisible = item.isSelected
+        holder.background.isVisible = item.isSelected
         holder.flag.text = item.flag
         holder.countryName.text = item.name
         holder.numberCode.text = item.dialCode
